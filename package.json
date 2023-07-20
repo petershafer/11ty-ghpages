@@ -5,7 +5,7 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "NODE_ENV=production eleventy",
-    "preview": "eleventy && node preview.js"
+    "preview": "NODE_ENV=production eleventy && node preview.js"
   },
   "dependencies": {
     "eleventy-plugin-seo": "0.5.2",
