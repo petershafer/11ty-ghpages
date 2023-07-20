@@ -44,6 +44,13 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.setBrowserSyncConfig({ ghostMode: false });
 
+  const g = require("./global.json");
+  if (process.env.NODE_ENV !== "production") {
+
+  } else {
+    eleventyConfig.addGlobalData("root", g.root);
+  }
+
   /* Build the collection of posts to list in the site
      - Read the Next Steps post to learn how to extend this
   */
