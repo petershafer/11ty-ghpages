@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "eleventy-plugin-seo": "0.5.2",
-    "express": "^4.18.2",
     "luxon": "^3.3.0"
   },
   "devDependencies": {
