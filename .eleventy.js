@@ -1,5 +1,6 @@
 const { DateTime } = require("luxon");
 const pluginSEO = require("eleventy-plugin-seo");
+const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 
 /**
 * This is the JavaScript code that determines the config for your Eleventy site
@@ -9,6 +10,7 @@ const pluginSEO = require("eleventy-plugin-seo");
 */
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.setTemplateFormats([
     // Templates:
     "html",
@@ -44,13 +46,6 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.setBrowserSyncConfig({ ghostMode: false });
 
-  const g = require("./global.json");
-  if (process.env.NODE_ENV !== "production") {
-
-  } else {
-    eleventyConfig.addGlobalData("root", g.root);
-  }
-
   /* Build the collection of posts to list in the site
      - Read the Next Steps post to learn how to extend this
   */
@@ -83,6 +78,7 @@ module.exports = function(eleventyConfig) {
       input: "src",
       includes: "_includes",
       output: "build"
-    }
+    },
+    pathPrefix: "/11ty-ghpages/"
   };
 };
